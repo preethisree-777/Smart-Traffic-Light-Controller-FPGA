@@ -1,0 +1,114 @@
+##========================================================
+## FINAL CLEAN XDC FILE - ZYBO Z7-10
+## Real-Time Smart 4-Way Traffic Light Controller
+## ERROR-FREE VERSION
+##========================================================
+
+###########################################################
+## CLOCK
+###########################################################
+
+set_property PACKAGE_PIN K17 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports clk]
+create_clock -period 8.000 -name sys_clk_pin -waveform {0 4} [get_ports clk]
+
+###########################################################
+## RESET BUTTON
+###########################################################
+
+set_property PACKAGE_PIN M18 [get_ports reset]
+set_property IOSTANDARD LVCMOS33 [get_ports reset]
+
+###########################################################
+## INPUT SWITCHES
+###########################################################
+
+## Sensors
+set_property PACKAGE_PIN G15 [get_ports north_sensor]
+set_property IOSTANDARD LVCMOS33 [get_ports north_sensor]
+
+set_property PACKAGE_PIN P15 [get_ports east_sensor]
+set_property IOSTANDARD LVCMOS33 [get_ports east_sensor]
+
+set_property PACKAGE_PIN W13 [get_ports south_sensor]
+set_property IOSTANDARD LVCMOS33 [get_ports south_sensor]
+
+set_property PACKAGE_PIN T16 [get_ports west_sensor]
+set_property IOSTANDARD LVCMOS33 [get_ports west_sensor]
+
+## Priority Inputs
+set_property PACKAGE_PIN R17 [get_ports emergency_vehicle]
+set_property IOSTANDARD LVCMOS33 [get_ports emergency_vehicle]
+
+set_property PACKAGE_PIN T20 [get_ports pedestrian_request]
+set_property IOSTANDARD LVCMOS33 [get_ports pedestrian_request]
+
+set_property PACKAGE_PIN U18 [get_ports system_fault]
+set_property IOSTANDARD LVCMOS33 [get_ports system_fault]
+
+## Time of Day
+set_property PACKAGE_PIN R16 [get_ports {time_of_day[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {time_of_day[0]}]
+
+set_property PACKAGE_PIN U19 [get_ports {time_of_day[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {time_of_day[1]}]
+
+###########################################################
+## OUTPUT LEDs
+###########################################################
+
+## NORTH
+set_property PACKAGE_PIN M14 [get_ports {N[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {N[0]}]
+
+set_property PACKAGE_PIN M15 [get_ports {N[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {N[1]}]
+
+set_property PACKAGE_PIN G14 [get_ports {N[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {N[2]}]
+
+## EAST
+set_property PACKAGE_PIN D18 [get_ports {E[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {E[0]}]
+
+set_property PACKAGE_PIN E18 [get_ports {E[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {E[1]}]
+
+set_property PACKAGE_PIN T22 [get_ports {E[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {E[2]}]
+
+set_property PACKAGE_PIN U21 [get_ports {S[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {S[0]}]
+
+set_property PACKAGE_PIN H15 [get_ports {S[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {S[1]}]
+
+set_property PACKAGE_PIN H17 [get_ports {S[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {S[2]}]
+
+## WEST
+set_property PACKAGE_PIN H18 [get_ports {W[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {W[0]}]
+
+set_property PACKAGE_PIN J15 [get_ports {W[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {W[1]}]
+
+set_property PACKAGE_PIN J14 [get_ports {W[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {W[2]}]
+
+###########################################################
+## STATUS LEDs
+###########################################################
+
+set_property PACKAGE_PIN J18 [get_ports pedestrian_light]
+set_property IOSTANDARD LVCMOS33 [get_ports pedestrian_light]
+
+set_property PACKAGE_PIN K18 [get_ports emergency_mode]
+set_property IOSTANDARD LVCMOS33 [get_ports emergency_mode]
+
+set_property PACKAGE_PIN L14 [get_ports system_healthy]
+set_property IOSTANDARD LVCMOS33 [get_ports system_healthy]
+
+###########################################################
+## countdown_timer intentionally not mapped
+###########################################################
